@@ -7,9 +7,9 @@ import { Outlet } from 'react-router-dom'
 
 const Root = () => {
     return (
-        <div className='min-h-screen flex flex-col justify-between'>
+        <div className='min-h-screen font-roboto flex flex-col justify-between'>
             <NavBar/>
-            <div className="min-h-[70vh]">
+            <div className="min-h-[90vh] flex flex-col justify-center items-center">
                 <Outlet/>
             </div>
             {/* <Features/>

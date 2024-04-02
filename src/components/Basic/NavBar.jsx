@@ -18,13 +18,15 @@ import { AuthContext } from "../../providers/AuthProvider";
 
         // onSetActive={this.handleSetActive} onSetInactive={this.handleSetInactive} 
 
+        // {isActive?'text-lg font-medium border-b-4 pb-1 rounded border-[#B2B377]':'text-sm font-normal'}
+
 const NavBar = () => {
     const navLinks = <>
-        <li><NavLink to={'/'} >Home</NavLink></li>
-        <li><NavLink to={'/features'}>Features</NavLink></li>
-        <li><NavLink to={'/tournaments'}>Tournaments</NavLink></li>
-        <li><NavLink to={'/partners'}>Partners</NavLink></li>
-        <li><NavLink to={'/faq'}>FAQ{`'`}s</NavLink></li> 
+        <li><NavLink className={({isActive})=>isActive?'text-[#131313] text-xl font-medium border-b-4 pb-1 border-[#B2B377]':'text-lg font-normal text-[#131313] p-5'} to={'/'} >Home</NavLink></li>
+        <li><NavLink className={({isActive})=>isActive?'text-[#131313] text-xl font-medium border-b-4 pb-1 border-[#B2B377]':'text-lg font-normal text-[#131313] p-5'} to={'/features'}>Features</NavLink></li>
+        <li><NavLink className={({isActive})=>isActive?'text-[#131313] text-xl font-medium border-b-4 pb-1 border-[#B2B377]':'text-lg font-normal text-[#131313] p-5'} to={'/tournaments'}>Tournaments</NavLink></li>
+        <li><NavLink className={({isActive})=>isActive?'text-[#131313] text-xl font-medium border-b-4 pb-1 border-[#B2B377]':'text-lg font-normal text-[#131313] p-5'} to={'/partners'}>Partners</NavLink></li>
+        <li><NavLink className={({isActive})=>isActive?'text-[#131313] text-xl font-medium border-b-4 pb-1 border-[#B2B377]':'text-lg font-normal text-[#131313] p-5'} to={'/faq'}>FAQ{`'`}s</NavLink></li> 
     </>;
 
     const { user, logOut } = useContext(AuthContext);
@@ -40,7 +42,7 @@ const NavBar = () => {
     }
     return (
         <div className="mx-10 mt-4">
-            <div className="sticky top-10 navbar bg-base-200 rounded-full px-8 flex flex-row justify-between">
+            <div className="sticky top-10 navbar bg-[#F1F5A8] rounded-full px-8 flex flex-row justify-between">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -50,13 +52,13 @@ const NavBar = () => {
                             {navLinks}
                         </ul>
                     </div>
-                    <div className="btn btn-ghost text-xl">
+                    <div className="btn btn-ghost text-2xl">
                         <img className="w-6" src="https://i.ibb.co/GQDx2dw/cricket.png" alt="logo" />
-                        CricFranzy
+                        <p>Cric<span className="text-[#6c6e13bb] text-3xl">F</span>ranzy</p>
                     </div>
                 </div>
-                <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1 flex gap-3">
+                <div className="navbar-center lg:w-[35%] hidden lg:flex lg:items-center lg:justify-center">
+                    <ul className="px-1 w-full flex justify-between items-center gap-2">
                         {navLinks}
                     </ul>
                 </div>
