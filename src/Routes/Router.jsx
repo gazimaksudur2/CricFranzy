@@ -36,7 +36,8 @@ const router = createBrowserRouter([
         },
         {
             path: '/features',
-            element: <Features/>
+            element: <Features/>,
+            loader: ()=>fetch('/features.json'),
         },
         {
             path: '/tournaments',

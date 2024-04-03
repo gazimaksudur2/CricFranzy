@@ -9,7 +9,7 @@ const Banner = () => {
                     <button className="btn btn-outline font-semibold text-lg text-white hover:text-[#131313] bg-[#6c6e13] hover:bg-[#B2B377]">Learn More</button>
                 </div>
             </div>
-            <img className="w-[40%]" src="https://img.freepik.com/free-vector/ipl-cricket-illustration-hand-drawn-style_23-2149201607.jpg?t=st=1712032618~exp=1712036218~hmac=343d35fbf31b407c765a7f4061a43de2f37dc3b09d5be3a640bb64f700b2a795&w=826" alt="banner image" />
+            <img className="w-[40%]" src="https://i.ibb.co/72gxpXP/banner-removebg-preview.png" alt="banner image" />
         </div>
     );
 };

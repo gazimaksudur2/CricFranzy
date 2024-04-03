@@ -1,12 +1,18 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import { IoEyeSharp } from "react-icons/io5";
+import { FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
 
     const { createUser } = useContext(AuthContext);
     const [Error, setError] = useState('');
     const [Success, setSuccess] = useState('');
+    const [showPass, setShowPass] = useState(false);
+    const [confirmPass, setConfirmPass] = useState(false);
+
+    const navigate = useNavigate();
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -51,10 +57,13 @@ const Register = () => {
         createUser(email, password)
         .then(result => {
             setSuccess("User Created Successfully !!");
+            e.target.reset();
             console.log(result.user);
+            navigate('/');
         })
         .catch(error=> {
-            setError(((error.message).split('/')[1]).split(')')[0]+' !!');
+            setError(error.message);
+            // setError(((error.message).split('/')[1]).split(')')[0]+' !!');
         });
     }
     return (
@@ -79,17 +88,22 @@ const Register = () => {
                             </label>
                             <input type="email" name='email' placeholder="email" className="input input-bordered" required />
                         </div>
-                        <div className="form-control">
+                        <div className="form-control relative">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                            <input type={`${showPass?'text':'password'}`} name="password" placeholder="password" className="input input-bordered" required />
+                            <IoEyeSharp onClick={()=>setShowPass(!showPass)} className={`absolute right-[8%] top-[60%] text-gray-700 ${showPass?'hidden':'flex'}`}/>
+                            <FaEyeSlash onClick={()=>setShowPass(!showPass)} className={`absolute right-[8%] top-[60%] text-gray-700 ${showPass?'flex':'hidden'}`}/>
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Confirm Password</span>
                             </label>
-                            <input type="password" name="confirm" placeholder="Confirm password" className="input input-bordered" required />
+                            <input type={confirmPass?"text":"password"} name="confirm" placeholder="Confirm password" className="input input-bordered" required />
+                            {
+                                confirmPass?<FaEyeSlash onClick={()=>setConfirmPass(!confirmPass)} className="absolute text-gray-700 top-[60%] right-[15%]"/>:<IoEyeSharp onClick={()=>setConfirmPass(!confirmPass)} className="absolute text-gray-700 top-[60%] right-[15%]"/>
+                            }
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
@@ -104,10 +118,10 @@ const Register = () => {
                         {
                             Success&& <p className="text-sm mt-3 text-green-400">{Success}</p>
                         }
-                        <div className="form-control mt-6">
+                        <div className="form-control mt-2">
                             <button className="btn btn-primary text-lg font-exo">Register</button>
                         </div>
-                        <p className="text-sm w-full text-center my-4">Already Registered?<Link to={'/login'} className="text-purple-600 underline"> login Here</Link></p>
+                        <p className="text-sm w-full text-center mb-2">Already Registered?<Link to={'/login'} className="text-purple-600 underline"> login Here</Link></p>
                     </form>
                 </div>
             </div>

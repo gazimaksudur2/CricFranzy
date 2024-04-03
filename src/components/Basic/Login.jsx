@@ -1,9 +1,13 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import { FcGoogle } from "react-icons/fc";
+import { FaFacebook } from "react-icons/fa";
+import { VscGithubInverted } from "react-icons/vsc";
 
 const Login = () => {
-    const { signInUser } = useContext(AuthContext);
+    const { signInUser, googleSignIn, githubSignIn } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -15,11 +19,32 @@ const Login = () => {
         signInUser(email, password)
             .then(result => {
                 console.log(result.user);
+                e.target.reset();
+                navigate('/');
             })
             .catch(error => {
                 console.log(error.message);
             })
     }
+
+    const handleGoogle = () =>{
+        googleSignIn()
+        .then(res=>{
+            console.log(res.user);
+            navigate('/');
+        })
+        .catch(error=> console.log(error.message))
+    }
+
+    const handleGithub = () =>{
+        githubSignIn()
+        .then(res=>{
+            console.log(res.user);
+            navigate('/');
+        })
+        .catch(error=> console.log(error.message))
+    }
+
     return (
         <div className="hero min-h-[60vh]">
             <div className="hero-content w-full flex-col lg:flex-row justify-evenly">
@@ -45,10 +70,25 @@ const Login = () => {
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
                         </div>
-                        <div className="form-control mt-6">
+                        <div className="form-control mt-2">
                             <button className="btn btn-primary text-lg font-exo">Login</button>
                         </div>
-                        <p className="text-sm w-full text-center my-4">New to this Website?<Link to={'/register'} className="text-purple-600 underline"> Register Here</Link></p>
+                        <p className="text-sm w-full text-center mb-2">New to this Website?<Link to={'/register'} className="text-purple-600 underline"> Register Here</Link></p>
+                        <div className="divider">OR</div>
+                        <div className="cont-lgin flex flex-col items-center gap-2">
+                            <div onClick={handleGoogle} className="btn border-2 px-4 py-2 rounded-full flex justify-center items-center gap-2">
+                                <FcGoogle size={20}/>
+                                <p>Continue with Google</p>
+                            </div>
+                            <div className="btn border-2 px-4 py-2 rounded-full flex justify-center items-center gap-2">
+                                <FaFacebook size={20} color="blue"/>
+                                <p>Continue with Facebook</p>
+                            </div>
+                            <div onClick={handleGithub} className="btn border-2 px-4 py-2 rounded-full flex justify-center items-center gap-2">
+                                <VscGithubInverted size={20}/>
+                                <p>Continue with Github</p>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -1,0 +1,51 @@
+[
+    {
+      "index": 1,
+      "type": "dashboard",
+      "title": "Fully Controlled Panel",
+      "description": "Elevate control with our dynamic management dashboard and real-time insights, intuitive navigation, seamless customaization.",
+      "features": ["Real-Time Data insights", "Customizable widgets", "Intuitive User Interfaces", "Performance  Metrices at a Glance"],
+      "image": "https://img.freepik.com/free-vector/site-stats-concept-illustration_114360-1434.jpg?w=826&t=st=1712136204~exp=1712136804~hmac=368752a2c73e648e61ccb232f851b6ed50e0f09059cae16271c29e7846f3911b"
+    },
+    {
+      "index": 2,
+      "type": "analytics",
+      "title": "Sales Performance Analytics",
+      "description": "Analyze your sales data to identify trends and opportunities with our comprehensive analytics platform. Stay ahead of the competition with actionable insights.",
+      "features": ["Sales metrics analysis", "Revenue forecasting", "Customer segmentation"],
+      "image": "https://img.freepik.com/free-vector/data-inform-illustration-concept_114360-864.jpg?size=626&ext=jpg&ga=GA1.1.1243563938.1712032527&semt=sph"
+    },
+    {
+      "index": 3,
+      "type": "monitoring",
+      "title": "Server Monitoring",
+      "description": "Ensure your servers are running smoothly with our advanced monitoring system. Monitor resource utilization, receive instant alerts, and track performance metrics in real-time. Our solution helps you optimize server performance and minimize downtime.",
+      "features": ["Resource utilization tracking", "Alert notifications", "Performance metrics"],
+      "image": "https://img.freepik.com/free-vector/big-data-storage-abstract-concept-illustration_335657-3838.jpg?t=st=1712138559~exp=1712142159~hmac=36b2951d37763b8a19e672743a8822ed698fe29920248aeb6b3fc70b5277bf7a&w=826"
+    },
+    {
+      "index": 4,
+      "type": "reporting",
+      "title": "Monthly Financial Report",
+      "description": "Generate detailed financial reports to guide decision-making and drive business growth. Our reporting solution provides an income statement, balance sheet, and cash flow analysis to help you assess your financial performance.",
+      "features": ["Income statement", "Balance sheet", "Cash flow analysis"],
+      "image": "https://img.freepik.com/free-photo/close-up-executives-reading-business-graphs_1098-2081.jpg?t=st=1712138188~exp=1712141788~hmac=eff5845904983b3b5f3946138a24a445a511211bfd090c63e298561afa82b93e&w=1380"
+    },
+    {
+      "index": 5,
+      "type": "management",
+      "title": "Project Management",
+      "description": "Efficiently manage projects and collaborate with team members using our comprehensive project management platform. Track tasks, facilitate team collaboration, and visualize progress with ease. Stay organized and achieve project success.",
+      "features": ["Task tracking", "Team collaboration", "Progress visualization"],
+      "image": "https://img.freepik.com/free-vector/business-team-discussing-ideas-startup_74855-4380.jpg?t=st=1712138226~exp=1712141826~hmac=bb38cd163483fefa4f193a8cc3a8048715b157e764249f74bcfd46999db5cd60&w=1380"
+    },
+    {
+      "index": 6,
+      "type": "social",
+      "title": "Social Media Dashboard",
+      "description": "Monitor your social media presence and engagement across multiple platforms with our powerful social media dashboard. Gain insights into audience demographics, track content performance, and optimize your social media strategy for maximum impact.",
+      "features": ["Social media analytics", "Audience demographics", "Content performance analysis"],
+      "image": "https://img.freepik.com/free-vector/marketing-consulting-concept-illustration_114360-9027.jpg?t=st=1712138299~exp=1712141899~hmac=f046da6a84aae9059e1d4d3bda906c35d6d80a961b775bef87984bf473797645&w=1380"
+    }
+  ]
+  

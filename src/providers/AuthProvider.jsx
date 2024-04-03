@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types'
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import auth from '../Firebase/firebase.config';
 
 export const AuthContext = createContext(null);
@@ -17,10 +17,19 @@ const AuthProvider = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+    const googleSignIn = () =>{
+        return signInWithPopup(auth, googleProvider);
+    }
+
+    const githubSignIn = ()=>{
+        return signInWithPopup(auth, githubProvider);
+    }
     useEffect(()=>{
         const unSubscribe =  onAuthStateChanged(auth, currentUser=>{
             setUser(currentUser);
-            console.log('observing current user : '+ currentUser);
+            // console.log('observing current user : '+ currentUser);
         });
 
         return ()=>{
@@ -32,7 +41,7 @@ const AuthProvider = ({children}) => {
     const logOut = () => {
         return signOut(auth);
     }
-    const authInfo = {user, createUser, signInUser, logOut};
+    const authInfo = {user, createUser, signInUser, logOut, googleSignIn, githubSignIn};
 
     return (
         <AuthContext.Provider value={authInfo}>
